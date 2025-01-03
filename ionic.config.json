@@ -1,0 +1,7 @@
+{
+  "name": "Veajes",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
