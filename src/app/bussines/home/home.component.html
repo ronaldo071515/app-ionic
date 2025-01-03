@@ -1,0 +1,38 @@
+<ion-content class="home-page">
+  <!-- Campo de Búsqueda -->
+  <div class="search-bar">
+    <ion-searchbar placeholder="¿A dónde quieres ir?" (ionInput)="onSearch($event)"></ion-searchbar>
+  </div>
+
+  <!-- Tarjetas de Opciones -->
+  <div class="cards-container">
+    <ion-card class="travel-card">
+      <ion-card-header>
+        <ion-card-title>Vuelos</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Encuentra los mejores precios para volar.
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="travel-card">
+      <ion-card-header>
+        <ion-card-title>Hoteles</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Reserva en hoteles increíbles alrededor del mundo.
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="travel-card">
+      <ion-card-header>
+        <ion-card-title>Experiencias</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Descubre actividades únicas en cada destino.
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
+
+

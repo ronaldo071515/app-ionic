@@ -1,0 +1,28 @@
+<ion-content class="hoteles-page">
+  <!-- Barra de búsqueda -->
+  <ion-searchbar [(ngModel)]="searchQuery" placeholder="Buscar hoteles" (ionInput)="filterHoteles()" debounce="300"
+    class="search-bar"></ion-searchbar>
+
+  <!-- Indicador de carga -->
+  <ion-spinner *ngIf="loading" name="crescent" class="loading-spinner"></ion-spinner>
+
+  <!-- Lista de Hoteles -->
+  <div *ngIf="!loading" class="hoteles-container">
+    <ion-card *ngFor="let hotel of filteredHoteles" class="hotel-card">
+      <img [src]="hotel.imagen" alt="{{ hotel.nombre }}" class="hotel-image" />
+      <ion-card-header>
+        <ion-card-title>{{ hotel.nombre }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>{{ hotel.descripcion }}</p>
+        <p><strong>Ubicación:</strong> {{ hotel.ubicacion }}</p>
+        <p><strong>Precio:</strong> ${{ hotel.precio }}</p>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <!-- Mensaje si no hay resultados -->
+  <div *ngIf="!loading && filteredHoteles.length === 0" class="no-results">
+    <p>No se encontraron hoteles.</p>
+  </div>
+</ion-content>
