@@ -16,35 +16,47 @@ import { CommonModule } from '@angular/common';
   ]
 })
 export class HotelesComponent implements OnInit {
-  hoteles: any[] = [];
+  hoteles: any[] = [
+    {
+      nombre: 'Hotel 1',
+      estrellas: 5,
+      precio: 1000
+    },
+    {
+      nombre: 'Hotel 2',
+      estrellas: 4,
+      precio: 800
+    }
+  ];
   filteredHoteles: any[] = [];
   searchQuery: string = '';
-  loading = true;
+  loading = false;
 
-  constructor(private http: HttpClient) {}
+  constructor() {}
 
   ngOnInit() {
     this.getHoteles();
   }
 
   getHoteles() {
-    this.http.get('https://api-dev.bestday.net/AffiliateService/v2.0/AffiliateService.svc/restful/GetHotels?d=2&l=ESP&a=4085fa34a0', { responseType: 'text' }).subscribe(
-      (response) => {
-        parseString(response, { explicitArray: false }, (err, result) => {
-          if (err) {
-            console.error('Error al convertir XML a JSON:', err);
-            return;
-          }
-          this.hoteles = result.hoteles.hotel || [];
-          this.filteredHoteles = this.hoteles; // Inicializa con todos los hoteles
-          this.loading = false;
-        });
-      },
-      (error) => {
-        console.error('Error en la petición HTTP:', error);
-        this.loading = false;
-      }
-    );
+    // Simulación de petición HTTP
+    // this.http.get('https://api-dev.bestday.net/AffiliateService/v2.0/AffiliateService.svc/restful/GetHotels?d=2&l=ESP&a=4085fa34a0', { responseType: 'text' }).subscribe(
+    //   (response) => {
+    //     parseString(response, { explicitArray: false }, (err, result) => {
+    //       if (err) {
+    //         console.error('Error al convertir XML a JSON:', err);
+    //         return;
+    //       }
+    //       this.hoteles = result.hoteles.hotel || [];
+    //       this.filteredHoteles = this.hoteles; // Inicializa con todos los hoteles
+    //       this.loading = false;
+    //     });
+    //   },
+    //   (error) => {
+    //     console.error('Error en la petición HTTP:', error);
+    //     this.loading = false;
+    //   }
+    // );
   }
 
   filterHoteles() {
